@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Ramen Finder & Chef: Discover the best local ramen spots or cook authentic Asian recipes at home.">
+    <title>Ramen Finder & Chef</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&family=Oswald:wght@500;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+    <script type="module" src="js/main.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <div class="logo-container">
+            <div class="ramen-icon" aria-hidden="true">🍜<span class="steam">〰️</span></div>
+            <h1>Ramen Finder & Chef</h1>
+        </div>
+    </header>
+
+    <main id="app-container" aria-live="polite">
+        <section id="home-view" class="view-active">
+            <h2>What's your energy level today?</h2>
+            <div class="dual-path-container">
+                <button id="btn-eat-out" class="path-btn primary-btn" aria-label="Find nearby ramen restaurants">
+                    <span>🏙️ Eat Out</span>
+                </button>
+                <button id="btn-cook-home" class="path-btn secondary-btn"
+                    aria-label="Find a ramen recipe to cook at home">
+                    <span>🍳 Cook at Home</span>
+                </button>
+            </div>
+        </section>
+
+        <section id="restaurant-view" class="view-hidden" aria-hidden="true"></section>
+        <section id="recipe-view" class="view-hidden" aria-hidden="true"></section>
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,132 @@
+/* css/style.css */
+:root {
+    /* Lo-fi Anime Palette */
+    --bg-dark: #1a1a24;
+    --bg-card: #2a2a35;
+    --text-main: #f0f0f5;
+    --text-muted: #a0a0b0;
+    --accent-orange: #ff7b54;
+    --accent-amber: #ffb26b;
+    --accent-red: #e05d5d;
+
+    /* Typography */
+    --font-heading: 'Oswald', sans-serif;
+    --font-body: 'Nunito', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: var(--font-body);
+    line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+    font-family: var(--font-heading);
+    color: var(--accent-amber);
+    letter-spacing: 1px;
+}
+
+/* Header & CSS Animation Requirement */
+header {
+    text-align: center;
+    padding: 2rem 1rem;
+    border-bottom: 1px solid var(--bg-card);
+}
+
+.logo-container {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.ramen-icon {
+    font-size: 2rem;
+    position: relative;
+}
+
+.steam {
+    position: absolute;
+    top: -15px;
+    left: 5px;
+    font-size: 1rem;
+    color: var(--accent-orange);
+    opacity: 0;
+    /* Animación CSS para el humo */
+    animation: riseSteam 3s infinite ease-in-out;
+}
+
+@keyframes riseSteam {
+    0% {
+        transform: translateY(5px) scale(0.8);
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translateY(-15px) scale(1.2);
+        opacity: 0;
+    }
+}
+
+/* Dual Path Buttons */
+.dual-path-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 2rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+    .dual-path-container {
+        flex-direction: row;
+    }
+}
+
+.path-btn {
+    flex: 1;
+    padding: 2rem;
+    font-size: 1.5rem;
+    font-family: var(--font-heading);
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: var(--bg-card);
+    color: var(--text-main);
+}
+
+.path-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.primary-btn {
+    border-bottom: 4px solid var(--accent-red);
+}
+
+.secondary-btn {
+    border-bottom: 4px solid var(--accent-orange);
+}
+
+/* View Routing Classes */
+.view-active {
+    display: block;
+}
+
+.view-hidden {
+    display: none;
+}
