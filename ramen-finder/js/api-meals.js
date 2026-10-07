@@ -9,13 +9,15 @@ export async function fetchMeals() {
     }
 }
 
-const cleanList = [];
+export function getIngredients(meal) {
+    const cleanList = [];
 
-for (let i = 1; i <= 20; i++) {
-    const ingredient = meal["strIngredient" + i];
-    const measure = meal["strMeasure" + i];
-    cleanList.push(ingredient + " " + measure);
-    if (ingredient !== " " && ingredient !== null) {
-        cleanList.push(ingredient);
+    for (let i = 1; i <= 20; i++) {
+        const ingredient = meal["strIngredient" + i];
+        const measure = meal["strMeasure" + i];
+        if (ingredient && ingredient.trim() !== "") {
+            cleanList.push(ingredient + " " + measure);
+        }
     }
+    return cleanList;
 }
