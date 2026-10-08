@@ -51,23 +51,30 @@ export function renderRecipe(meal, ingredients) {
 
 export function renderRestaurants(restaurants) {
     let restaurantsHTML = `
-        <div class="restaurants-container">
-            <button id="btn-back-home" style="margin-bottom: 1rem; padding: 0.5rem 1rem; border-radius: 8px; cursor: pointer;">⬅ Back to Home</button>
-            <h2>Ramen Spots Near You</h2>
-            <div class="restaurant-grid" style="display: flex; flex-direction: column; gap: 1rem; margin-top: 1rem;">
+        <div class="restaurants-wrapper">
+            <div class="navigation-bar">
+                <button id="btn-back-home" class="btn-action btn-back">⬅ Back to Home</button>
+            </div>
+            
+            <div class="restaurants-header">
+                <h2>Ramen Spots Near You</h2>
+                <p class="subtitle">Virtual teleportation to the most authentic places</p>
+            </div>
+            
+            <div class="restaurant-grid">
     `;
 
     if (restaurants.length === 0) {
-        restaurantsHTML += `<p>No ramen places found nearby. Maybe it's a good day to cook at home!</p>`;
+        restaurantsHTML += `<p style="text-align: center; width: 100%;">No ramen places found nearby. Maybe it's a good day to cook at home!</p>`;
     } else {
         restaurants.forEach(place => {
             const name = place.name || "Ramen Restaurant";
             const address = place.address || place.location?.address || "Unknown address";
 
             restaurantsHTML += `
-                <div class="restaurant-card" style="background-color: var(--bg-card); padding: 1.5rem; border-radius: 12px; border-left: 4px solid var(--accent-orange);">
+                <div class="restaurant-card">
                     <h3>🍜 ${name}</h3>
-                    <p style="color: var(--text-muted); margin-top: 0.5rem;">📍 ${address}</p>
+                    <p>📍 ${address}</p>
                 </div>
             `;
         });
