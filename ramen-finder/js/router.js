@@ -36,11 +36,10 @@ export function initRouter() {
         navigator.geolocation.getCurrentPosition(async (position) => {
             const latitude = position.coords.latitude;
             const longitude = position.coords.longitude;
-            console.log(`Navigating to: Eat Out at (${latitude}, ${longitude})`);
+
+            alert("Location detected! Since the most authentic spots are in Japan, we are virtually teleporting you there to see the best options.");
 
             const restaurants = await fetchRestaurants(latitude, longitude);
-            console.log('Restaurants found:', restaurants);
-
             renderRestaurants(restaurants);
             switchView(restaurantView);
 
