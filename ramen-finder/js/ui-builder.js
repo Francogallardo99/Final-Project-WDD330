@@ -1,3 +1,5 @@
+import { saveShoppingList } from './storage-manager.js';
+
 export function renderRecipe(meal, ingredients) {
     let ingredientsHTML = "<ul class='ingredients-list'>";
 

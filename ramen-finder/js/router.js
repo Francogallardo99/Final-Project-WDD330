@@ -7,15 +7,18 @@ const restaurantView = document.getElementById('restaurant-view');
 const recipeView = document.getElementById('recipe-view');
 
 function switchView(viewToShow) {
-    homeView.classList.remove('view-active');
-    homeView.classList.add('view-hidden');
-    restaurantView.classList.remove('view-active');
-    restaurantView.classList.add('view-hidden');
-    recipeView.classList.remove('view-active');
-    recipeView.classList.add('view-hidden');
+    // 1. Ocultamos todas las vistas y las marcamos como invisibles para lectores de pantalla
+    const allViews = [homeView, restaurantView, recipeView];
+
+    allViews.forEach(view => {
+        view.classList.remove('view-active');
+        view.classList.add('view-hidden');
+        view.setAttribute('aria-hidden', 'true'); 
+    });
 
     viewToShow.classList.remove('view-hidden');
     viewToShow.classList.add('view-active');
+    viewToShow.setAttribute('aria-hidden', 'false'); 
 }
 
 export function initRouter() {
