@@ -1,7 +1,5 @@
-import { saveShoppingList } from './storage-manager.js';
-
 export function renderRecipe(meal, ingredients) {
-    let ingredientsHTML = "<ul>";
+    let ingredientsHTML = "<ul class='ingredients-list'>";
 
     ingredients.forEach(item => {
         ingredientsHTML += `<li>${item}</li>`;
@@ -10,23 +8,31 @@ export function renderRecipe(meal, ingredients) {
     ingredientsHTML += "</ul>";
 
     const recipeHTML = `
-        <div class="recipe-card">
-            <h3>${meal.strMeal}</h3>
-            <img src="${meal.strMealThumb}" alt="${meal.strMeal}" style="max-width: 100%; border-radius: 12px; margin: 1rem 0;">
+        <div class="recipe-container">
+            <button id="btn-back-home" class="btn-action btn-back">⬅ Back to Home</button>
             
-            <div class="recipe-content">
-                <div class="ingredients-section">
-                    <h4>Ingredients</h4>
-                    ${ingredientsHTML}
-                    <button id="btn-save-list">Save Shopping List</button>
-                </div>
+            <div class="recipe-card-detailed">
+                <h2 class="recipe-title">${meal.strMeal}</h2>
                 
-                <div class="instructions-section">
-                    <h4>Instructions</h4>
-                    <p>${meal.strInstructions}</p>
+                <div class="recipe-layout">
+                    <div class="recipe-image-wrapper">
+                        <img src="${meal.strMealThumb}" alt="${meal.strMeal}" class="recipe-image">
+                    </div>
+                    
+                    <div class="recipe-content-wrapper">
+                        <div class="ingredients-section">
+                            <h3>🛒 Ingredients</h3>
+                            ${ingredientsHTML}
+                            <button id="btn-save-list" class="btn-action btn-save">Save Shopping List</button>
+                        </div>
+                        
+                        <div class="instructions-section">
+                            <h3>👨‍🍳 Instructions</h3>
+                            <p class="recipe-instructions">${meal.strInstructions}</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <button id="btn-back-home" style="margin-bottom: 1rem;">⬅ Back to Home</button>
         </div>
     `;
 

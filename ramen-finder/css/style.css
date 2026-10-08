@@ -170,3 +170,119 @@ header {
         font-size: 0.8rem;
     }
 }
+
+
+.recipe-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.recipe-card-detailed {
+    background-color: var(--bg-card);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    margin-top: 1rem;
+}
+
+.recipe-title {
+    text-align: center;
+    font-size: 2.5rem;
+    padding: 1.5rem;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-bottom: 2px solid var(--accent-amber);
+    margin-bottom: 0;
+}
+
+.recipe-layout {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Imagen controlada */
+.recipe-image-wrapper {
+    width: 100%;
+}
+
+.recipe-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    max-height: 400px;
+}
+
+.recipe-content-wrapper {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.ingredients-list {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 1rem 0;
+}
+
+.ingredients-list li {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 0.5rem 1rem;
+    margin-bottom: 0.5rem;
+    border-radius: 6px;
+    border-left: 3px solid var(--accent-orange);
+}
+
+.recipe-instructions {
+    color: var(--text-muted);
+    white-space: pre-line;
+    line-height: 1.8;
+    margin-top: 1rem;
+}
+
+.btn-action {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: transform 0.2s, opacity 0.2s;
+    color: white;
+}
+
+.btn-action:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+.btn-back {
+    background-color: var(--bg-card);
+    border: 1px solid var(--text-muted);
+}
+
+.btn-save {
+    background-color: var(--accent-orange);
+    width: 100%;
+    margin-top: 1rem;
+}
+
+@media (min-width: 768px) {
+    .recipe-layout {
+        flex-direction: row;
+    }
+
+    .recipe-image-wrapper {
+        flex: 1;
+    }
+
+    .recipe-content-wrapper {
+        flex: 1.2;
+        max-height: 600px;
+        overflow-y: auto;
+    }
+
+    .recipe-image {
+        max-height: 100%;
+    }
+}
