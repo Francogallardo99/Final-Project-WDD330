@@ -1,15 +1,20 @@
 export async function fetchRestaurants(lat, lng) {
     try {
-        const urlExterna = `https://api.proveedor.com/buscar?lat=${lat}&lng=${lng}&query=ramen`;
-
-        const response = await fetch(urlExterna);
+        const response = await fetch('https://ramen-api.dev/shops?perPage=5');
 
         const data = await response.json();
 
-        return data.results;
+        const formattedRestaurants = data.shops.map(shop => {
+            return {
+                name: shop.name,
+                address: `${shop.prefecture}, Japón`
+            };
+        });
+
+        return formattedRestaurants;
 
     } catch (error) {
         console.error('Error fetching restaurants:', error);
-        return []; 
+        return [];
     }
 }
