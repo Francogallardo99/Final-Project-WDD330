@@ -27,14 +27,19 @@
 
     <main id="app-container" aria-live="polite">
         <section id="home-view" class="view-active">
-            <h2>What's your energy level today?</h2>
-            <div class="dual-path-container">
-                <button id="btn-eat-out" class="path-btn primary-btn" aria-label="Find nearby ramen restaurants">
-                    <span>🏙️ Eat Out</span>
+            <div class="dual-path-container fullscreen-split">
+                <button id="btn-eat-out" class="path-btn split-btn eat-out-bg" aria-label="Find nearby ramen restaurants">
+                    <div class="btn-content">
+                        <span class="btn-title">EAT OUT</span>
+                        <span class="btn-subtitle">Find the best Japanese ramen near you</span>
+                    </div>
                 </button>
-                <button id="btn-cook-home" class="path-btn secondary-btn"
+                <button id="btn-cook-home" class="path-btn split-btn cook-home-bg"
                     aria-label="Find a ramen recipe to cook at home">
-                    <span>🍳 Cook at Home</span>
+                    <div class="btn-content">
+                        <span class="btn-title">COOK AT HOME</span>
+                        <span class="btn-subtitle">Authentic recipes step-by-step</span>
+                    </div>
                 </button>
             </div>
         </section>
